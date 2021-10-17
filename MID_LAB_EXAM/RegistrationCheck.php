@@ -13,9 +13,9 @@
 		{
 			if($password != "")
 			{
-				if($confirmpassword != "")
+				if($confirmpassword = $password)
 				{
-					if($name != "")
+					if((preg_match ("/^[a-zA-z]*$/", $name)))
 					{
 						if($usertype != "")
 						{
@@ -30,19 +30,27 @@
 
 						else
 						{
-							echo "invalid email....";
+							echo "User type cannot be empty";
 						}
 					}
 					else
 					{
-						echo "invalid password....";
+						echo "Invalid name";
 					}
 				}
 				else
 				{
-					echo "invalid username....";
+					echo "Confirm password doesn't match";
 				}
 			}
+			else
+			{
+				echo "Invalid password type";
+			}
+		}
+		else
+		{
+			echo "Invalid id type";
 		}
 	}
 ?>
