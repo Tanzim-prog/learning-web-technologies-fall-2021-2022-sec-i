@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title>Date Of Birth Validation</title>
+</head>
+<body>
+    <form id="myform" action="dateOfBirthValidation.php" onsubmit="return ValidateForm()" method="post">
+        <label for="dob">Date of birth</label>
+        <br/>
+        <input type="date" name="dob" id="dob" required/>
+        <span id="error"></span>
+        <br/>
+        <input type="submit" name="submit" id="submit" value="Submit"/>
+    </form>
+</body>
+</html>
