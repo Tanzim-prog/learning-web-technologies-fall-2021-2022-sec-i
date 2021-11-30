@@ -1,0 +1,153 @@
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="jquery-3.6.0.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>Person Profile</h1>
+		<form id="registration_form">
+			<div>
+				<label>Name</label>
+				<input type="text" id="form_name" name="" required="">
+				<span class="error_form" id="name_error_message"></span>	
+			</div>
+			<div>
+				<label>Email</label>
+				<input type="email" id="form_email" name="" required="">
+				<span class="error_form" id="email_error_message"></span>	
+			</div>
+			<div>
+				<label>Gender</label>
+				<input type="radio" id="form_gender" name="" required="">
+				<span class="error_form" id="gender_error_message"></span>	
+			</div>
+			<div>
+				<label>Date Of Birth</label>
+				<input type="date" id="form_dateofbirth" name="" required="">
+				<span class="error_form" id="dateofbirth_error_message"></span>
+			</div>
+			<div>
+				<label>Blood Group</label>
+				<input type="hidden" id="form_bloodgroup" name="" required="">
+				<span class="error_form" id="bloodgroup_error_message"></span>	
+			</div>
+			<div>
+				<label>Degree</label>
+				<input type="checkbox" id="form_degree" name="" required="">
+				<span class="error_form" id="degree_error_message"></span>
+			</div>
+			<input type="submit" value="submit" name="submit">
+		</form>
+	</div>
+	<script type="text/javascript">
+      $(function()
+      {
+         $("#name_error_message").hide();
+         $("#email_error_message").hide();
+         $("#gender_error_message").hide();
+         $("#dateofbirth_error_message").hide();
+         $("#bloodgroup_error_message").hide();
+         $("#degree_error_message").hide();
+
+         var error_name = false;
+         var error_email = false;
+         var error_gender = false;
+         var error_dateofbirth = false;
+         var error_bloodgroup = false;
+         var error_degree = false;
+
+         $("#form_name").focusout(function()
+         {
+            check_name();
+         });
+         $("#form_email").focusout(function()
+         {
+            check_email();
+         });
+         $("#form_gender").focusout(function()
+         {
+            check_gender();
+         });
+         $("#form_dateofbirth").focusout(function()
+         {
+            check_dateofbirth();
+         });
+         $("#form_bloodgroup").focusout(function()
+         {
+            check_bloodgroup();
+         });
+         $("#form_degree").focusout(function()
+         {
+            check_degree();
+         });
+
+         function check_name()
+         {
+            var pattern = /^[a-zA-Z]*$/;
+            var fname = $("#form_name").val();
+            if (pattern.test(name) && name !== '')
+            {
+            	$("#name_error_message").hide();
+            	$("#form_name").css("border-bottom","2px solid #34F458");
+            }
+            else
+            {
+            	$("#name_error_message").html("Should contain only Characters");
+            	$("#name_error_message").show();
+            	$("#form_name").css("border-bottom","2px solid #F90A0A");
+            	error_name = true;
+            }
+         }
+         function check_email()
+         {
+            var pattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            var email = $("#form_email").val();
+            if (pattern.test(email) && email !== '')
+            {
+            	$("#email_error_message").hide();
+            	$("#form_email").css("border-bottom","2px solid #34F458");
+            }
+            else
+            {
+            	$("#email_error_message").html("Invalid Email");
+            	$("#email_error_message").show();
+            	$("#form_email").css("border-bottom","2px solid #F90A0A");
+            	error_email = true;
+            }
+         }
+         function check_gender()
+         {
+         	var gender = $("#form_gender").val();
+         	if (gender !== '')
+            {
+            	$("#gender_error_message").hide();
+            	$("#form_gender").css("border-bottom","2px solid #34F458");
+            }
+            else
+            {
+            	$("#gender_error_message").html("Invalid Email");
+            	$("#gender_error_message").show();
+            	$("#form_gender").css("border-bottom","2px solid #F90A0A");
+            	error_gender = true;
+            }
+         }
+         function check_dateofbirth()
+         {
+         	var dateofbirth = $("#form_dateofbirth").val();
+         	if (dateofbirth !== '')
+            {
+            	$("#dateofbirth_error_message").hide();
+            	$("#form_dateofbirth").css("border-bottom","2px solid #34F458");
+            }
+            else
+            {
+            	$("#dateofbirth_error_message").html("Invalid Email");
+            	$("#dateofbirth_error_message").show();
+            	$("#form_dateofbirth").css("border-bottom","2px solid #F90A0A");
+            	error_dateofbirth = true;
+            }
+         }
+    </script>
+</body>
+</html>
